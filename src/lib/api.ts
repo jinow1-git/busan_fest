@@ -1,6 +1,7 @@
 import { Festival, FestivalResponse } from "@/types";
 
-const API_URL = "https://apis.data.go.kr/6260000/FestivalService/getFestivalKr?serviceKey=64451020e60e677d653b084ccde4a1f84a1994ae49bbaf49fd508bda04a76054&pageNo=1&numOfRows=100&resultType=json";
+const API_KEY = process.env.BUSAN_FEST_API_KEY || "64451020e60e677d653b084ccde4a1f84a1994ae49bbaf49fd508bda04a76054";
+const API_URL = `https://apis.data.go.kr/6260000/FestivalService/getFestivalKr?serviceKey=${API_KEY}&pageNo=1&numOfRows=100&resultType=json`;
 
 export function cleanTitle(title: string): string {
   return title.replace(/\s*\(한.*일\)/g, "").trim();
